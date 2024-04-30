@@ -12,6 +12,7 @@ import {
   PopoverGroup,
   PopoverPanel
 } from '@headlessui/vue'
+import AppLogo from './components/icons/AppLogo.vue';
 import SideBar from '@/components/SideBar.vue';
 import {
   ArrowPathIcon,
@@ -66,18 +67,11 @@ const mobileMenuOpen = ref(false)
 
 <template>
   <header class="bg-white">
-    <nav
-      class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-      aria-label="Global"
-    >
+    <nav class="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
-          <img
-            class="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt=""
-          />
+          <span class="sr-only">DreamStreamer</span>
+          <AppLogo class="h-8 w-auto" />
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -92,13 +86,9 @@ const mobileMenuOpen = ref(false)
       </div>
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
         <RouterLink to="/" class="text-sm font-semibold leading-6 text-gray-900">Home</RouterLink>
-        <RouterLink to="/about" class="text-sm font-semibold leading-6 text-gray-900"
-          >About</RouterLink
-        >
+        <RouterLink to="/about" class="text-sm font-semibold leading-6 text-gray-900">About</RouterLink>
         <Popover class="relative">
-          <PopoverButton
-            class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
-          >
+          <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
             Product
             <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
           </PopoverButton>
@@ -174,11 +164,7 @@ const mobileMenuOpen = ref(false)
         <div class="flex items-center justify-between">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
-            <img
-              class="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            />
+            <AppLogo class="h-8 w-auto" />
           </a>
           <button
             type="button"
@@ -289,7 +275,6 @@ nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  margin-top: 2rem;
 }
 
 nav a.router-link-exact-active {
@@ -329,11 +314,7 @@ nav a:first-of-type {
 
   nav {
     text-align: left;
-    margin-left: -1rem;
     font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 </style>
