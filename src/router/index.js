@@ -23,24 +23,24 @@ const router = createRouter({
       component: () => import('../views/admin/AdminDashboard.vue')
     },
     {
-      path: '/admin/users',
-      name: 'users',
-      component: () => import('../views/admin/users/Index.vue'),
+      path: '/admin/user',
+      name: 'user',
+      component: () => import('../views/admin/user/Index.vue'),
       children: [
         {
           path: 'create',
           name: 'createUser',
-          component: () => import('../views/admin/users/Create.vue')
+          component: () => import('../views/admin/user/Create.vue')
         },
         {
           path: ':id',
           name: 'viewUser',
-          component: () => import('../views/admin/users/View.vue')
+          component: () => import('../views/admin/user/View.vue')
         },
         {
           path: ':id/edit',
           name: 'editUser',
-          component: () => import('../views/admin/users/Edit.vue')
+          component: () => import('../views/admin/user/Edit.vue')
         }
       ]
     },

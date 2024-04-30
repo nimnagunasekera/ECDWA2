@@ -12,6 +12,7 @@ import {
   PopoverGroup,
   PopoverPanel
 } from '@headlessui/vue'
+import SideBar from '@/components/SideBar.vue';
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -254,13 +255,26 @@ const mobileMenuOpen = ref(false)
   </header>
 
   <main>
-    <RouterView />
+    <div class="main">
+    <SideBar />
+    <div class="p-4">
+      <RouterView />
+    </div>
+  </div>
   </main>
 
   <footer></footer>
 </template>
 
 <style scoped>
+.main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background: var(--color-background);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;

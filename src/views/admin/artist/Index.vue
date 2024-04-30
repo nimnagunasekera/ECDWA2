@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <h1>Artist list page</h1>
+    <div>
+      <h1>Artist list page</h1>
     <router-view />
-  </div>
+    </div>
 </template>
-
-<style></style>
