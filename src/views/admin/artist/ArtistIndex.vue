@@ -91,6 +91,7 @@
 </template>
 
 <script setup>
+
 const artists = [
   {
     id: 1,

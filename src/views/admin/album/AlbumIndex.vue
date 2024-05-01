@@ -105,6 +105,7 @@
 </template>
 
 <script setup>
+
 const albums = [
   {
     id: 1,
