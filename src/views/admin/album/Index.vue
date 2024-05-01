@@ -1,18 +1,24 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="px-4 sm:px-6 lg:px-8">
+  <div class="main">
+    <div>
+      <SideBar />
+    </div>
+    <div class="px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
         <h1 class="text-base font-semibold leading-6 text-gray-900">Albums</h1>
         <p class="mt-2 text-sm text-gray-700">A list of all the albums in this system.</p>
       </div>
       <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-        <button
-          type="button"
-          class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Add Album
-        </button>
+        <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <RouterLink
+            to="/admin/album/create"
+            class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Add Album
+          </RouterLink>
+        </div>
       </div>
     </div>
     <div class="mt-8 flow-root">
@@ -101,11 +107,14 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
   <router-view />
 </template>
 
 <script setup>
+import SideBar from '@/components/SideBar.vue';
+import { RouterLink } from 'vue-router';
 
 const albums = [
   {
@@ -174,4 +183,12 @@ const albums = [
   }
 ]
 </script>
-<style></style>
+<style>
+.main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background: var(--color-background);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+</style>
