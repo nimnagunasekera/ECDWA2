@@ -243,7 +243,7 @@ const mobileMenuOpen = ref(false)
   <main>
     <div class="main">
     <SideBar />
-    <div class="p-4">
+    <div>
       <RouterView />
     </div>
   </div>

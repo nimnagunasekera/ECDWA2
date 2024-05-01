@@ -1,16 +1,17 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
-        <h1 class="text-base font-semibold leading-6 text-gray-900">Albums</h1>
-        <p class="mt-2 text-sm text-gray-700">A list of all the albums in this system.</p>
+        <h1 class="text-base font-semibold leading-6 text-gray-900">Artists</h1>
+        <p class="mt-2 text-sm text-gray-700">A list of all the artists in this system.</p>
       </div>
       <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
         <button
           type="button"
           class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Add Album
+          Add Artist
         </button>
       </div>
     </div>
@@ -30,16 +31,7 @@
                   Name
                 </th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Year
-                </th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Artist
-                </th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Studio
-                </th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Genre
+                  Avatar
                 </th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                   Status
@@ -50,48 +42,43 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
-              <tr v-for="album in albums" :key="album.id">
+              <tr v-for="artist in artists" :key="artist.id">
                 <td
                   class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
                 >
-                  {{ album.id }}
+                  {{ artist.id }}
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  {{ album.name }}
+                  {{ artist.name }}
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  {{ album.year }}
+                  <img
+                    :src="artist.avatar"
+                    alt="Artist avatar"
+                    class="h-8 w-8 rounded-full bg-gray-50"
+                  />
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  {{ album.artist.name }}
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  {{ album.studio }}
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  {{ album.genre }}
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  <span v-if="album.status">Active</span>
+                  <span v-if="artist.status">Active</span>
                   <span v-else>Inactive</span>
                 </td>
                 <td
                   class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
                 >
                   <RouterLink
-                    :to="`/admin/album/${album.id}`"
+                    :to="`/admin/artist/${artist.id}`"
                     class="text-indigo-600 hover:text-indigo-900"
                   >
                     View
-                    <span class="sr-only">, {{ album.name }}</span>
+                    <span class="sr-only">, {{ artist.name }}</span>
                   </RouterLink>
                   |
                   <RouterLink
-                    :to="`/admin/album/${album.id}/edit`"
+                    :to="`/admin/artist/${artist.id}/edit`"
                     class="text-indigo-600 hover:text-indigo-900"
                   >
                     Edit
-                    <span class="sr-only">, {{ album.name }}</span>
+                    <span class="sr-only">, {{ artist.name }}</span>
                   </RouterLink>
                 </td>
               </tr>
@@ -106,70 +93,24 @@
 
 <script setup>
 
-const albums = [
+const artists = [
   {
     id: 1,
-    name: 'Paata',
-    number_of_tracks: 8,
-    year: 2020,
-    album_art: 'IMAGE_URL',
-    artist: {
-      id: 1,
-      name: 'Costa',
-      avatar: 'IMAGE_URL'
-    },
-    studio: 'COSTA Songs',
-    genre: 'RAP',
-    sort_order: 0,
-    status: true // Published etc.
+    name: 'Costa',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    status: true
   },
   {
     id: 2,
-    name: 'Paata',
-    number_of_tracks: 8,
-    year: 2020,
-    album_art: 'IMAGE_URL',
-    artist: {
-      id: 1,
-      name: 'Costa',
-      avatar: 'IMAGE_URL'
-    },
-    studio: 'COSTA Songs',
-    genre: 'RAP',
-    sort_order: 0,
-    status: true // Published etc.
+    name: 'K-Mac',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    status: false
   },
   {
     id: 3,
-    name: 'Paata',
-    number_of_tracks: 8,
-    year: 2020,
-    album_art: 'IMAGE_URL',
-    artist: {
-      id: 1,
-      name: 'Costa',
-      avatar: 'IMAGE_URL'
-    },
-    studio: 'COSTA Songs',
-    genre: 'RAP',
-    sort_order: 0,
-    status: true // Published etc.
-  },
-  {
-    id: 4,
-    name: 'Paata',
-    number_of_tracks: 8,
-    year: 2020,
-    album_art: 'IMAGE_URL',
-    artist: {
-      id: 1,
-      name: 'Costa',
-      avatar: 'IMAGE_URL'
-    },
-    studio: 'COSTA Songs',
-    genre: 'RAP',
-    sort_order: 0,
-    status: true // Published etc.
+    name: 'Kao Denero',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    status: true
   }
 ]
 </script>

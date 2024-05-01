@@ -48,7 +48,7 @@
   } from '@heroicons/vue/24/outline'
   
   const navigation = [
-    { name: 'Admin Dashboard', href: '/', icon: HomeIcon, current: true },
+    { name: 'Dashboard', href: '/', icon: HomeIcon, current: true },
     { name: 'Artists', href: '/admin/artist', icon: CalendarIcon, current: false },
     { name: 'Genres', href: '/admin/genre', icon: CalendarIcon, current: false },
     { name: 'Albums', href: '/admin/album', icon: CalendarIcon, current: false },

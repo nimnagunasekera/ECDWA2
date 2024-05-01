@@ -1,6 +1,7 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="relative z-10" @close="open = false">
+    <Dialog as="div" class="relative z-10" @close="open = true">
       <TransitionChild
         as="template"
         enter="ease-out duration-300"
@@ -32,19 +33,31 @@
               <div>
                 <div class="mt-3 sm:mt-5">
                   <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">
-                    {{ album.name }}
+                    {{ artist.name }}
                   </DialogTitle>
                   <div class="mt-2">
                     <div class="text-sm text-gray-500">
                       <ul>
-                        <li>number_of_tracks: {{ album.number_of_tracks }}</li>
-                        <li>year: {{ album.year }}</li>
-                        <li>album_art: {{ album.album_art }}</li>
-                        <li>artist: {{ album.artist.name }}</li>
-                        <li>studio: {{ album.studio }}</li>
-                        <li>genre: {{ album.genre }}</li>
-                        <li>sort_order: {{ album.sort_order }}</li>
-                        <li>status: {{ album.status }}</li>
+                        <li>bio: {{ artist.bio }}</li>
+                        <li>avatar: {{ artist.avatar }}</li>
+                        <li>
+                          tracks: 
+                          <ul>
+                            <li v-for="track in artist.tracks" :key="track.id">
+                              {{ track.name }}
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          albums: 
+                          <ul>
+                            <li v-for="album in artist.albums" :key="album.id">
+                              {{ album.name }}
+                            </li>
+                          </ul>
+                        </li>
+                        <li>sort_order: {{ artist.sort_order }}</li>
+                        <li>status: {{ artist.status }}</li>
                       </ul>
                     </div>
                   </div>
@@ -54,7 +67,7 @@
                 <RouterLink
                   type="button"
                   class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
-                  to="/admin/album"
+                  to="/admin/artist"
                   ref="cancelButtonRef"
                 >
                   Close
@@ -74,19 +87,21 @@ import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } fro
 
 const open = ref(true)
 
-const album = {
+const artist = {
   id: 1,
-  name: 'Paata',
-  number_of_tracks: 8,
-  year: 2020,
-  album_art: 'IMAGE_URL',
-  artist: {
-    id: 1,
-    name: 'Costa',
-    avatar: 'IMAGE_URL'
-  },
-  studio: 'COSTA Songs',
-  genre: 'RAP',
+  name: 'Costa',
+  bio: 'Costa is a Sri Lankan singer, songwriter, and composer. He is a prominent figure in the Sri Lankan music industry and has gained popularity in the South Asian region. Costa has released several albums and singles throughout his career and has won numerous awards for his work.',
+  avatar: 'IMAGE_URL',
+  tracks: [
+    { id: 1, name: 'Paata', duration: '3:45', sort_order: 0, status: true },
+    { id: 2, name: 'Samanala Sandwaniya', duration: '4:12', sort_order: 0, status: true },
+    { id: 3, name: 'Numba Thama', duration: '3:30', sort_order: 0, status: true }
+  ],
+  albums: [
+    { id: 1, name: 'Album1', year: 2020, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'RAP', sort_order: 0, status: true },
+    { id: 2, name: 'Album2', year: 2018, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'POP', sort_order: 0, status: true },
+    { id: 3, name: 'Album3', year: 2016, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'POP', sort_order: 0, status: true }
+  ],
   sort_order: 0,
   status: true // Published etc.
 }
