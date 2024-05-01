@@ -47,44 +47,44 @@ const router = createRouter({
     {
       path: '/admin/artist',
       name: 'artist',
-      component: () => import('../views/admin/artist/Index.vue'),
+      component: () => import('../views/admin/artist/ArtistIndex.vue'),
       children: [
         {
           path: 'create',
           name: 'createArtist',
-          component: () => import('../views/admin/artist/Create.vue')
+          component: () => import('../views/admin/artist/ArtistCreate.vue')
         },
         {
           path: ':id',
           name: 'viewArtist',
-          component: () => import('../views/admin/artist/View.vue')
+          component: () => import('../views/admin/artist/ArtistView.vue')
         },
         {
           path: ':id/edit',
           name: 'editArtist',
-          component: () => import('../views/admin/artist/Edit.vue')
+          component: () => import('../views/admin/artist/ArtistEdit.vue')
         }
       ]
     },
     {
       path: '/admin/album',
       name: 'album',
-      component: () => import('../views/admin/album/Index.vue'),
+      component: () => import('../views/admin/album/AlbumIndex.vue'),
       children: [
         {
           path: 'create',
           name: 'createAlbum',
-          component: () => import('../views/admin/album/Create.vue')
+          component: () => import('../views/admin/album/AlbumCreate.vue')
         },
         {
           path: ':id',
           name: 'viewAlbum',
-          component: () => import('../views/admin/album/View.vue')
+          component: () => import('../views/admin/album/AlbumView.vue')
         },
         {
           path: ':id/edit',
           name: 'editAlbum',
-          component: () => import('../views/admin/album/Edit.vue')
+          component: () => import('../views/admin/album/AlbumEdit.vue')
         }
       ]
     },
