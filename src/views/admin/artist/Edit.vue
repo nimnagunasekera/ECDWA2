@@ -102,6 +102,45 @@
                             </div>
                           </div>
                         </div>
+
+                        <div class="sm:col-span-4">
+                          <label
+                            for="sort_order"
+                            class="block text-sm font-medium leading-6 text-gray-900">
+                            Sort Order
+                          </label>
+                          <div class="mt-2">
+                            <div
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                              <input
+                                type="number"
+                                name="sort_order"
+                                id="sort_order"
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                v-model="artist.sort_order"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="sm:col-span-4">
+                          <label
+                            for="status"
+                            class="block text-sm font-medium leading-6 text-gray-900">
+                            Status
+                          </label>
+                          <div class="mt-2">
+                            <div
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                              <input
+                                type="checkbox"
+                                name="status"
+                                id="status"
+                                class="block flex-1 border-0 bg-transparent py-2 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 my-3"
+                                v-model="artist.status"/>
+                            </div>
+                          </div>
+                        </div>
+
                       </div>
 
                       <div class="text-sm text-gray-500">
@@ -109,8 +148,6 @@
                           <li>name: {{ artist.name }}</li>
                           <li>bio: {{ artist.bio }}</li>
                           <li>avatar: {{ artist.avatar }}</li>
-                          <li>tracks: {{ artist.tracks.name }}</li>
-                          <li>albums: {{ artist.albums.name }}</li>
                           <li>sort_order: {{ artist.sort_order }}</li>
                           <li>status: {{ artist.status }}</li>
                         </ul>

@@ -110,7 +110,7 @@
                           </div>
                         </div>
 
-                        <div class="sm:col-span-4">
+                        <div class="sm:col-span-1">
                           <label
                             for="status"
                             class="block text-sm font-medium leading-6 text-gray-900">
