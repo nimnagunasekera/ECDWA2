@@ -142,9 +142,9 @@
                                 id="artist"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                               >
-                                <option value="1">Costa</option>
-                                <option value="2">K Mac</option>
-                                <option value="3">Ravi Jay</option>
+                                <option v-for="artist in album.artist" :key="artist.id" :value="artist.id">
+                                  {{ artist.name }}
+                                </option>
                               </select>
                             </div>
                           </div>
@@ -182,13 +182,15 @@
                             <div
                               class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
                             >
-                              <input
-                                type="text"
+                              <select
+                                v-model="album.genre.id"
                                 name="genre"
                                 id="genre"
-                                v-model="album.genre"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                              />
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                                <option v-for="genre in album.genre" :key="genre.id" :value="genre.id">
+                                  {{ genre.name }}
+                                </option>
+                              </select>
                             </div>
                           </div>
                         </div>
@@ -249,13 +251,21 @@ const album = ref({
   number_of_tracks: 8,
   year: 2020,
   album_art: 'IMAGE_URL',
-  artist: {
-    id: 1,
-    name: 'Costa',
-    avatar: 'IMAGE_URL'
-  },
+  artist: [
+    { id: 1, name: 'Costa', avatar: 'https://randomuser.me/api/port', },
+    { id: 2, name: 'K Mac', avatar: 'https://randomuser.me/api/port', },
+    { id: 3, name: 'Ravi Jay', avatar: 'https://randomuser.me/api/port', },
+    { id: 4, name: 'Ridma', avatar: 'https://randomuser.me/api/port', },
+    { id: 5, name: 'Thilina R', avatar: 'https://randomuser.me/api/port', }
+  ],
   studio: 'COSTA Songs',
-  genre: 'RAP',
+  genre: [
+    { id: 1, name: 'Rock', image: 'https://randomuser.me/api/port', },
+    { id: 2, name: 'Pop', image: 'https://randomuser.me/api/port', },
+    { id: 3, name: 'Jazz', image: 'https://randomuser.me/api/port', },
+    { id: 4, name: 'Blues', image: 'https://randomuser.me/api/port', },
+    { id: 5, name: 'Country', image: 'https://randomuser.me/api/port', }
+  ],
   sort_order: 0,
   status: true // Published etc.
 })

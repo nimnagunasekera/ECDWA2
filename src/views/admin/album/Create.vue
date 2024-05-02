@@ -124,9 +124,7 @@
                                 name="artist"
                                 id="artist"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-                                <option value="1">Costa</option>
-                                <option value="2">K Mac</option>
-                                <option value="3">Ravi Jay</option>
+                                <option v-for="artist in album.artist" :key="artist.id" :value="artist.id">{{ artist.name }}</option>
                               </select>
                             </div>
                           </div>
@@ -159,29 +157,17 @@
                           <div class="mt-2">
                             <div
                               class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <input
-                                type="text"
+                              <select
+                                v-model="album.genre.id"
                                 name="genre"
                                 id="genre"
-                                v-model="album.genre"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"/>
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                                <option v-for="genre in album.genre" :key="genre.id" :value="genre.id">{{ genre.name }}</option>
+                              </select>
                             </div>
                           </div>
                         </div>
                       </div>
-
-                      <!-- <div class="text-sm text-gray-500">
-                        <ul>
-                          <li>number_of_tracks: {{ album.number_of_tracks }}</li>
-                          <li>year: {{ album.year }}</li>
-                          <li>album_art: {{ album.album_art }}</li>
-                          <li>artist: {{ album.artist.name }}</li>
-                          <li>studio: {{ album.studio }}</li>
-                          <li>genre: {{ album.genre }}</li>
-                          <li>sort_order: {{ album.sort_order }}</li>
-                          <li>status: {{ album.status }}</li>
-                        </ul>
-                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -223,13 +209,20 @@ const album = ref({
   number_of_tracks: 0,
   year: new Date().getFullYear(),
   album_art: '',
-  artist: {
-    id: null,
-    name: '',
-    avatar: ''
-  },
+  artist: [
+    { id: 1, name: 'Costa', avatar: 'https://randomuser.me/api/port', },
+    { id: 2, name: 'K Mac', avatar: 'https://randomuser.me/api/port', },
+    { id: 3, name: 'Ravi Jay', avatar: 'https://randomuser.me/api/port', },
+    { id: 4, name: 'Ridma', avatar: 'https://randomuser.me/api/port', },
+    { id: 5, name: 'Thilina R', avatar: 'https://randomuser.me/api/port', }
+  ],
   studio: '',
-  genre: '',
+  genre: [
+    { id: 1, name: 'Rock' },
+    { id: 2, name: 'Pop' },
+    { id: 3, name: 'Rap' },
+    { id: 4, name: 'Jazz' },
+  ],
   sort_order: 0,
   status: false
 })
