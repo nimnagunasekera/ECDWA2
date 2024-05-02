@@ -102,38 +102,6 @@
                             </div>
                           </div>
                         </div>
-
-                        <div class="sm:col-span-8">
-                          <label for="tracks" class="block text-sm font-medium leading-6 text-gray-900">
-                            Tracks
-                          </label>
-                          <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <ul>
-                                <li v-for="track in artist.tracks" :key="track.id">
-                                  <input type="checkbox" v-model="track.status" />
-                                  {{ track.name }}
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="sm:col-span-8">
-                          <label for="albums" class="block text-sm font-medium leading-6 text-gray-900">
-                            Albums
-                          </label>
-                          <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <ul>
-                                <li v-for="album in artist.albums" :key="album.id">
-                                  <input type="checkbox" v-model="album.status" />
-                                  {{ album.name }}
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
                       </div>
 
                       <div class="text-sm text-gray-500">
@@ -189,16 +157,6 @@ const artist = ref({
   name: 'Costa',
   bio: 'Costa is a Sri Lankan singer, songwriter, and composer. He is a prominent figure in the Sri Lankan music industry and has gained popularity in the South Asian region. Costa has released several albums and singles throughout his career and has won numerous awards for his work.',
   avatar: 'IMAGE_URL',
-  tracks: [
-    { id: 1, name: 'Paata', duration: '3:45', sort_order: 0, status: true },
-    { id: 2, name: 'Samanala Sandwaniya', duration: '4:12', sort_order: 0, status: true },
-    { id: 3, name: 'Numba Thama', duration: '3:30', sort_order: 0, status: true }
-  ],
-  albums: [
-    { id: 1, name: 'Album1', year: 2020, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'RAP', sort_order: 0, status: true },
-    { id: 2, name: 'Album2', year: 2018, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'POP', sort_order: 0, status: true },
-    { id: 3, name: 'Album3', year: 2016, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'POP', sort_order: 0, status: true }
-  ],
   sort_order: 0,
   status: true // Published etc.
   })

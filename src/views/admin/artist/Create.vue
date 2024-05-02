@@ -27,11 +27,11 @@
             leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <DialogPanel
               class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-              <form v-on:submit.prevent="saveAlbum">
+              <form v-on:submit.prevent="saveArtist">
                 <div>
                   <div class="mt-3 sm:mt-5">
                     <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">
-                      {{ album.name }}
+                      {{ artist.name }}
                     </DialogTitle>
                     <div class="mt-2">
                       <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
@@ -49,62 +49,43 @@
                                 name="name"
                                 id="name"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="album.name"/>
+                                v-model="artist.name"/>
                             </div>
                           </div>
                         </div>
 
                         <div class="sm:col-span-4">
                           <label
-                            for="number_of_tracks"
+                            for="bio"
                             class="block text-sm font-medium leading-6 text-gray-900">
-                            Number of Tracks
+                            Bio
                           </label>
                           <div class="mt-2">
                             <div
                               class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
                                 type="text"
-                                name="number_of_tracks"
-                                id="number_of_tracks"
+                                name="bio"
+                                id="bio"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="album.number_of_tracks"/>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="sm:col-span-4">
-                          <label
-                            for="year"
-                            class="block text-sm font-medium leading-6 text-gray-900">
-                            Year
-                          </label>
-                          <div class="mt-2">
-                            <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <input
-                                type="text"
-                                name="year"
-                                id="year"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="album.year"/>
+                                v-model="artist.bio"/>
                             </div>
                           </div>
                         </div>
 
                         <div class="sm:col-span-8">
                           <label
-                            for="album_art"
+                            for="avatar"
                             class="block text-sm font-medium leading-6 text-gray-900">
-                            Album Art
+                            Avatar
                           </label>
                           <div class="mt-2">
                             <div
                               class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
                                 type="file"
-                                name="album_art"
-                                id="album_art"
+                                name="avatar"
+                                id="avatar"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"/>
                             </div>
                           </div>
@@ -112,76 +93,43 @@
 
                         <div class="sm:col-span-4">
                           <label
-                            for="artist"
+                            for="sort_order"
                             class="block text-sm font-medium leading-6 text-gray-900">
-                            Artist
-                          </label>
-                          <div class="mt-2">
-                            <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <select
-                                v-model="album.artist.id"
-                                name="artist"
-                                id="artist"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-                                <option value="1">Costa</option>
-                                <option value="2">K Mac</option>
-                                <option value="3">Ravi Jay</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="sm:col-span-4">
-                          <label
-                            for="studio"
-                            class="block text-sm font-medium leading-6 text-gray-900">
-                            Studio
+                            Sort Order
                           </label>
                           <div class="mt-2">
                             <div
                               class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
-                                type="text"
-                                name="studio"
-                                id="studio"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"/>
+                                type="number"
+                                name="sort_order"
+                                id="sort_order"
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                v-model="artist.sort_order"/>
                             </div>
                           </div>
                         </div>
 
                         <div class="sm:col-span-4">
                           <label
-                            for="genre"
+                            for="status"
                             class="block text-sm font-medium leading-6 text-gray-900">
-                            Genre
+                            Status
                           </label>
                           <div class="mt-2">
                             <div
                               class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                               <input
-                                type="text"
-                                name="genre"
-                                id="genre"
-                                v-model="album.genre"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"/>
+                                type="checkbox"
+                                name="status"
+                                id="status"
+                                class="block flex-1 border-0 bg-transparent py-2 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 my-3"
+                                v-model="artist.status"/>
                             </div>
                           </div>
                         </div>
+                        
                       </div>
-
-                      <!-- <div class="text-sm text-gray-500">
-                        <ul>
-                          <li>number_of_tracks: {{ album.number_of_tracks }}</li>
-                          <li>year: {{ album.year }}</li>
-                          <li>album_art: {{ album.album_art }}</li>
-                          <li>artist: {{ album.artist.name }}</li>
-                          <li>studio: {{ album.studio }}</li>
-                          <li>genre: {{ album.genre }}</li>
-                          <li>sort_order: {{ album.sort_order }}</li>
-                          <li>status: {{ album.status }}</li>
-                        </ul>
-                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -217,29 +165,21 @@ const open = ref(true)
 
 const router = useRouter()
 
-const album = ref({
+const artist = ref({
   id: null,
   name: '',
-  number_of_tracks: 0,
-  year: new Date().getFullYear(),
-  album_art: '',
-  artist: {
-    id: null,
-    name: '',
-    avatar: ''
-  },
-  studio: '',
-  genre: '',
+  bio: '',
+  avatar: '',
   sort_order: 0,
   status: false
 })
 
-const saveAlbum = () => {
-  console.log(album)
+const saveArtist = () => {
+  console.log(artist)
 
-  // Call the API or function to create a new album here
+  // Call the API or function to create a new artist here
 
-  // route the user to the album list page
-  router.push('/admin/album')
+  // route the user to the artist list page
+  router.push('/admin/artist')
 }
 </script>
