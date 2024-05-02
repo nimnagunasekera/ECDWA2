@@ -34,7 +34,7 @@
                 <div>
                   <div class="mt-3 sm:mt-5">
                     <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">
-                      {{ artist.name }}
+                      {{ genre.name }}
                     </DialogTitle>
                     <div class="mt-2">
                       <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
@@ -54,7 +54,7 @@
                                 name="name"
                                 id="name"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="artist.name"
+                                v-model="genre.name"
                               />
                             </div>
                           </div>
@@ -62,31 +62,10 @@
 
                         <div class="sm:col-span-8">
                           <label
-                            for="bio"
+                            for="description"
                             class="block text-sm font-medium leading-6 text-gray-900"
                           >
-                            Bio
-                          </label>
-                          <div class="mt-2">
-                            <div
-                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
-                            >
-                              <textarea
-                                name="bio"
-                                id="bio"
-                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="artist.bio"
-                              ></textarea>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="sm:col-span-8">
-                          <label
-                            for="avatar"
-                            class="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Avatar
+                            Description
                           </label>
                           <div class="mt-2">
                             <div
@@ -94,43 +73,77 @@
                             >
                               <input
                                 type="text"
-                                name="avatar"
-                                id="avatar"
+                                name="description"
+                                id="description"
                                 class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                v-model="artist.avatar"
+                                v-model="genre.description"
                               />
                             </div>
                           </div>
                         </div>
 
                         <div class="sm:col-span-8">
-                          <label for="tracks" class="block text-sm font-medium leading-6 text-gray-900">
-                            Tracks
+                          <label
+                            for="image"
+                            class="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Image
                           </label>
                           <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <ul>
-                                <li v-for="track in artist.tracks" :key="track.id">
-                                  <input type="checkbox" v-model="track.status" />
-                                  {{ track.name }}
-                                </li>
-                              </ul>
+                            <div
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
+                            >
+                              <input
+                                type="text"
+                                name="image"
+                                id="image"
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                v-model="genre.image"
+                              />
                             </div>
                           </div>
                         </div>
 
                         <div class="sm:col-span-8">
-                          <label for="albums" class="block text-sm font-medium leading-6 text-gray-900">
-                            Albums
+                          <label
+                            for="sort_order"
+                            class="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Sort Order
                           </label>
                           <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                              <ul>
-                                <li v-for="album in artist.albums" :key="album.id">
-                                  <input type="checkbox" v-model="album.status" />
-                                  {{ album.name }}
-                                </li>
-                              </ul>
+                            <div
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
+                            >
+                              <input
+                                type="number"
+                                name="sort_order"
+                                id="sort_order"
+                                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                v-model="genre.sort_order"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="sm:col-span-1">
+                          <label
+                            for="status"
+                            class="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Status
+                          </label>
+                          <div class="mt-2">
+                            <div
+                              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
+                            >
+                              <input
+                                type="checkbox"
+                                name="status"
+                                id="status"
+                                class="block flex-1 border-0 bg-transparent py-2 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 my-3"
+                                v-model="genre.status"
+                              />
                             </div>
                           </div>
                         </div>
@@ -138,8 +151,10 @@
 
                       <div class="text-sm text-gray-500">
                         <ul>
-                          <li>name: {{ genre.name }}</li>
-
+                          <li>description: {{ genre.description }}</li>
+                          <li>image: {{ genre.image }}</li>
+                          <li>sort_order: {{ genre.sort_order }}</li>
+                          <li>status: {{ genre.status }}</li>
                         </ul>
                       </div>
                     </div>
@@ -182,6 +197,8 @@ const router = useRouter()
 const genre = ref({
   id: 1,
   name: 'Pop',
+  description: 'Pop music',
+  image: 'IMAGE_URL',
   sort_order: 0,
   status: true // Published etc.
   })
