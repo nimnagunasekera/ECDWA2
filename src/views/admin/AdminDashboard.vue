@@ -1,7 +1,3 @@
-<script setup>
-import SideBar from '@/components/SideBar.vue';
-</script>
-
 <template>
   <div class="main">
     <SideBar />
@@ -11,7 +7,10 @@ import SideBar from '@/components/SideBar.vue';
   </div>
 </template>
 
-<style></style>
+<script setup>
+import SideBar from '@/components/SideBar.vue';
+</script>
+
 <style>
 .main {
   display: grid;
