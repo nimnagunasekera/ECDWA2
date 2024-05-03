@@ -151,5 +151,7 @@ const genres = [
   background: var(--color-background);
   color: var(--color-text);
   min-height: 100vh;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 </style>
