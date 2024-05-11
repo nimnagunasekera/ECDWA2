@@ -85,7 +85,7 @@ const mobileMenuOpen = ref(false)
       </div>
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
         <RouterLink to="/" class="text-sm font-semibold leading-6 text-gray-900">Home</RouterLink>
-        <RouterLink to="/about" class="text-sm font-semibold leading-6 text-gray-900">About</RouterLink>
+        <!-- <RouterLink to="/about" class="text-sm font-semibold leading-6 text-gray-900">About</RouterLink> -->
         <Popover class="relative">
           <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
             Product
