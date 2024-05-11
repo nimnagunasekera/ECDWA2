@@ -105,44 +105,54 @@
 <script setup>
 import SideBar from '@/components/SideBar.vue';
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
 
-const genres = [
-  {
-    id: 1,
-    name: 'Rock',
-    description: 'Rock music is a broad genre of popular music that originated as "rock and roll" in the United States in the late 1940s and early 1950s, developing into a range of different styles in the mid-1960s and later, particularly in the United States and the United Kingdom.',
-    image: 'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee',
-    status: true,
-  },
-  {
-    id: 2,
-    name: 'Pop',
-    description: 'Pop music is a genre of popular music that originated in its modern form during the mid-1950s in the United States and the United Kingdom.',
-    image: 'https://images.unsplash.com/photo-1548778052-311f4bc2b502',
-    status: true,
-  },
-  {
-    id: 3,
-    name: 'Hip Hop',
-    description: 'Hip hop music, also known as rap music, is a genre of popular music developed in the United States by inner-city African Americans, Latino Americans, and Caribbean Americans in the Bronx borough of New York City in the 1970s.',
-    image: 'https://images.unsplash.com/photo-1598308793232-ea6ad827ab4d',
-    status: true,
-  },
-  {
-    id: 4,
-    name: 'Jazz',
-    description: 'Jazz is a music genre that originated in the African-American communities of New Orleans, United States, in the late 19th and early 20th centuries, with its roots in blues and ragtime.',
-    image: 'https://images.unsplash.com/flagged/photo-1569231290150-9c6200705c5b',
-    status: true,
-  },
-  {
-    id: 5,
-    name: 'Classical',
-    description: 'Classical music is art music produced or rooted in the traditions of Western culture, generally considered to have begun in Europe after the fall of the Western Roman Empire in the late 5th century and continuing to present day.',
-    image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6',
-    status: true,
-  },
-]
+const genres = ref([])
+
+fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/genres')
+  .then(response => response.json())
+  .then(response => {
+    console.log(response);
+    genres.value = response.body;
+});
+
+// const genres = [
+//   {
+//     id: 1,
+//     name: 'Rock',
+//     description: 'Rock music is a broad genre of popular music that originated as "rock and roll" in the United States in the late 1940s and early 1950s, developing into a range of different styles in the mid-1960s and later, particularly in the United States and the United Kingdom.',
+//     image: 'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee',
+//     status: true,
+//   },
+//   {
+//     id: 2,
+//     name: 'Pop',
+//     description: 'Pop music is a genre of popular music that originated in its modern form during the mid-1950s in the United States and the United Kingdom.',
+//     image: 'https://images.unsplash.com/photo-1548778052-311f4bc2b502',
+//     status: true,
+//   },
+//   {
+//     id: 3,
+//     name: 'Hip Hop',
+//     description: 'Hip hop music, also known as rap music, is a genre of popular music developed in the United States by inner-city African Americans, Latino Americans, and Caribbean Americans in the Bronx borough of New York City in the 1970s.',
+//     image: 'https://images.unsplash.com/photo-1598308793232-ea6ad827ab4d',
+//     status: true,
+//   },
+//   {
+//     id: 4,
+//     name: 'Jazz',
+//     description: 'Jazz is a music genre that originated in the African-American communities of New Orleans, United States, in the late 19th and early 20th centuries, with its roots in blues and ragtime.',
+//     image: 'https://images.unsplash.com/flagged/photo-1569231290150-9c6200705c5b',
+//     status: true,
+//   },
+//   {
+//     id: 5,
+//     name: 'Classical',
+//     description: 'Classical music is art music produced or rooted in the traditions of Western culture, generally considered to have begun in Europe after the fall of the Western Roman Empire in the late 5th century and continuing to present day.',
+//     image: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6',
+//     status: true,
+//   },
+// ]
 </script>
 <style>
 .main {
