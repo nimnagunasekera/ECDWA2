@@ -124,7 +124,7 @@ fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/albums')
   .then(response => {
     console.log(response);
     albums.value = response.body;
-  });
+});
 </script>
 <style>
 .main {

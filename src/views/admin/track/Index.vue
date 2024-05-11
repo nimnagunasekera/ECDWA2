@@ -128,42 +128,52 @@
 <script setup>
 import SideBar from '@/components/SideBar.vue';
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
 
-const tracks = [
-  {
-    id: 1,
-    name: 'Track 1',
-    file: 'https://example.com/track1.mp3',
-    genre: 'Pop',
-    duration: '3:45',
-    artist: 'Artist 1',
-    album: 'Album 1',
-    sort_order: 1,
-    status: true,
-  },
-  {
-    id: 2,
-    name: 'Track 2',
-    file: 'https://example.com/track2.mp3',
-    genre: 'Rock',
-    duration: '4:15',
-    artist: 'Artist 2',
-    album: 'Album 2',
-    sort_order: 2,
-    status: false,
-  },
-  {
-    id: 3,
-    name: 'Track 3',
-    file: 'https://example.com/track3.mp3',
-    genre: 'Jazz',
-    duration: '5:00',
-    artist: 'Artist 3',
-    album: 'Album 3',
-    sort_order: 3,
-    status: true,
-  },
-]
+const tracks = ref([])
+
+fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/tracks')
+  .then(response => response.json())
+  .then(response => {
+    console.log(response);
+    tracks.value = response.body;
+});
+
+// const tracks = [
+//   {
+//     id: 1,
+//     name: 'Track 1',
+//     file: 'https://example.com/track1.mp3',
+//     genre: 'Pop',
+//     duration: '3:45',
+//     artist: 'Artist 1',
+//     album: 'Album 1',
+//     sort_order: 1,
+//     status: true,
+//   },
+//   {
+//     id: 2,
+//     name: 'Track 2',
+//     file: 'https://example.com/track2.mp3',
+//     genre: 'Rock',
+//     duration: '4:15',
+//     artist: 'Artist 2',
+//     album: 'Album 2',
+//     sort_order: 2,
+//     status: false,
+//   },
+//   {
+//     id: 3,
+//     name: 'Track 3',
+//     file: 'https://example.com/track3.mp3',
+//     genre: 'Jazz',
+//     duration: '5:00',
+//     artist: 'Artist 3',
+//     album: 'Album 3',
+//     sort_order: 3,
+//     status: true,
+//   },
+// ]
 </script>
 <style>
 .main {
