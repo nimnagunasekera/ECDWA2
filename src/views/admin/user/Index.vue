@@ -111,33 +111,58 @@
 <script setup>
 import SideBar from '@/components/SideBar.vue';
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
 
-const users = [
-  {
-    id: 1,
-    name: 'John Doe',
-    email: 'johndoe@example.com',
-    subscription: 'Premium',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    status: true
-  },
-  {
-    id: 2,
-    name: 'James Smith',
-    email: 'james@example.com',
-    subscription: 'Free',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    status: false
-  },
-  {
-    id: 3,
-    name: 'Jerry West',
-    email: 'jerry@example.com',
-    subscription: 'Premium',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    status: true
-  }
-]
+const users = ref([])
+
+fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/users')
+  .then(response => response.json())
+  .then(response => {
+    console.log(response);
+    users.value = response.body;
+});
+
+// const users = [
+//   {
+//     id: 1,
+//     name: 'John Doe',
+//     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     email: 'johndoe@example.com',
+//     password: 'password',
+//     age: 25,
+//     country: 'United States',
+//     subscription: 'Premium',
+//     phone: '123-456-7890',
+//     sort_order: 0,
+//     status: true
+//   },
+//   {
+//     id: 2,
+//     name: 'James Smith',
+//     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     email: 'james@example.com',
+//     password: 'password',
+//     age: 30,
+//     country: 'United Kingdom',
+//     subscription: 'Free',
+//     phone: '123-456-7890',
+//     sort_order: 1,
+//     status: false
+//   },
+//   {
+//     id: 3,
+//     name: 'Jerry West',
+//     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     email: 'jerry@example.com',
+//     password: 'password',
+//     age: 35,
+//     country: 'Australia',
+//     subscription: 'Premium',
+//     phone: '123-456-7890',
+//     sort_order: 2,
+//     status: true
+//   }
+// ]
 </script>
 <style>
 .main {
