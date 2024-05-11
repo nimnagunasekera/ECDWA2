@@ -41,8 +41,8 @@
                         <li>file: {{ track.file }}</li>
                         <li>genre: {{ track.genre }}</li>
                         <li>duration: {{ track.duration }}</li>
-                        <li>artist: {{ track.artist.name }}</li>
-                        <li>album: {{ track.album.name }}</li>
+                        <li>artist: {{ track.artist ? track.artist.name : 'Loading...' }}</li>
+                        <li>album: {{ track.album ? track.album.name : 'Loading...' }}</li>
                         <li>sort_order: {{ track.sort_order }}</li>
                         <li>status: {{ track.status }}</li>
                       </ul>
@@ -71,26 +71,37 @@
 <script setup>
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const open = ref(true)
+const track = ref({});
 
-const track = {
-  id: 1,
-  name: 'Track 1',
-  file: 'track1.mp3',
-  genre: 'Rock',
-  duration: '3:45',
-  artist: {
-    id: 1,
-    name: 'Costa',
-    avatar: 'IMAGE_URL'
-  },
-  album: {
-    id: 1,
-    name: 'Album 1',
-    album_art: 'IMAGE_URL'
-  },
-  sort_order: 0,
-  status: true // Published etc.
-}
+fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/tracks?id='+route.params.id)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    track.value = response.body[0]
+})
+
+// const track = {
+//   id: 1,
+//   name: 'Track 1',
+//   file: 'track1.mp3',
+//   genre: 'Rock',
+//   duration: '3:45',
+//   artist: {
+//     id: 1,
+//     name: 'Costa',
+//     avatar: 'IMAGE_URL'
+//   },
+//   album: {
+//     id: 1,
+//     name: 'Album 1',
+//     album_art: 'IMAGE_URL'
+//   },
+//   sort_order: 0,
+//   status: true // Published etc.
+// }
 </script>

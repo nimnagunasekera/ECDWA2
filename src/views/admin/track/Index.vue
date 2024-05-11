@@ -83,10 +83,10 @@
                     {{ track.duration }}
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    {{ track.artist }}
+                    {{ track.artist.name }}
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    {{ track.album }}
+                    {{ track.album.name }}
                   </td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     {{ track.sort_order }}
@@ -143,36 +143,60 @@ fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/tracks')
 //   {
 //     id: 1,
 //     name: 'Track 1',
-//     file: 'https://example.com/track1.mp3',
-//     genre: 'Pop',
+//     file: 'track1.mp3',
+//     genre: 'Rock',
 //     duration: '3:45',
-//     artist: 'Artist 1',
-//     album: 'Album 1',
+//     artist: {
+//       id: 1,
+//       name: 'Costa',
+//       avatar: 'IMAGE_URL'
+//     },
+//     album: {
+//       id: 1,
+//       name: 'Album 1',
+//       album_art: 'IMAGE_URL'
+//     },
 //     sort_order: 1,
-//     status: true,
+//     status: true
 //   },
 //   {
 //     id: 2,
 //     name: 'Track 2',
-//     file: 'https://example.com/track2.mp3',
-//     genre: 'Rock',
+//     file: 'track2.mp3',
+//     genre: 'Pop',
 //     duration: '4:15',
-//     artist: 'Artist 2',
-//     album: 'Album 2',
+//     artist: {
+//       id: 2,
+//       name: 'K-Mac',
+//       avatar: 'IMAGE_URL'
+//     },
+//     album: {
+//       id: 2,
+//       name: 'Album 2',
+//       album_art: 'IMAGE_URL'
+//     },
 //     sort_order: 2,
-//     status: false,
+//     status: true
 //   },
 //   {
 //     id: 3,
 //     name: 'Track 3',
-//     file: 'https://example.com/track3.mp3',
-//     genre: 'Jazz',
-//     duration: '5:00',
-//     artist: 'Artist 3',
-//     album: 'Album 3',
+//     file: 'track3.mp3',
+//     genre: 'Hip Hop',
+//     duration: '3:30',
+//     artist: {
+//       id: 3,
+//       name: 'Kao Denero',
+//       avatar: 'IMAGE_URL'
+//     },
+//     album: {
+//       id: 3,
+//       name: 'Album 3',
+//       album_art: 'IMAGE_URL'
+//     },
 //     sort_order: 3,
-//     status: true,
-//   },
+//     status: true
+//   }
 // ]
 </script>
 <style>
