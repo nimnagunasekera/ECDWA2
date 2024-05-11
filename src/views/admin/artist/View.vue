@@ -84,25 +84,36 @@
 <script setup>
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
 const open = ref(true)
+const artist = ref({});
 
-const artist = {
-  id: 1,
-  name: 'Costa',
-  bio: 'Costa is a Sri Lankan singer, songwriter, and composer. He is a prominent figure in the Sri Lankan music industry and has gained popularity in the South Asian region. Costa has released several albums and singles throughout his career and has won numerous awards for his work.',
-  avatar: 'IMAGE_URL',
-  tracks: [
-    { id: 1, name: 'Paata', duration: '3:45', sort_order: 0, status: true },
-    { id: 2, name: 'Samanala Sandwaniya', duration: '4:12', sort_order: 0, status: true },
-    { id: 3, name: 'Numba Thama', duration: '3:30', sort_order: 0, status: true }
-  ],
-  albums: [
-    { id: 1, name: 'Album1', year: 2020, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'RAP', sort_order: 0, status: true },
-    { id: 2, name: 'Album2', year: 2018, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'POP', sort_order: 0, status: true },
-    { id: 3, name: 'Album3', year: 2016, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'POP', sort_order: 0, status: true }
-  ],
-  sort_order: 0,
-  status: true // Published etc.
-}
+fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/artists?id='+route.params.id)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    artist.value = response.body[0]
+})
+
+// const artist = 
+// {
+//   id: 1,
+//   name: 'Costa',
+//   bio: 'Costa is a Sri Lankan singer, songwriter, and composer. He is a prominent figure in the Sri Lankan music industry and has gained popularity in the South Asian region. Costa has released several albums and singles throughout his career and has won numerous awards for his work.',
+//   avatar: 'IMAGE_URL',
+//   tracks: [
+//     { id: 1, name: 'Paata', duration: '3:45', sort_order: 0, status: true },
+//     { id: 2, name: 'Samanala Sandwaniya', duration: '4:12', sort_order: 0, status: true },
+//     { id: 3, name: 'Numba Thama', duration: '3:30', sort_order: 0, status: true }
+//   ],
+//   albums: [
+//     { id: 1, name: 'Album1', year: 2020, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'RAP', sort_order: 0, status: true },
+//     { id: 2, name: 'Album2', year: 2018, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'POP', sort_order: 0, status: true },
+//     { id: 3, name: 'Album3', year: 2016, album_art: 'IMAGE_URL', studio: 'COSTA Songs', genre: 'POP', sort_order: 0, status: true }
+//   ],
+//   sort_order: 0,
+//   status: true // Published etc.
+// }
 </script>
