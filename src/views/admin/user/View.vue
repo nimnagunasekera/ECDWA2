@@ -74,20 +74,31 @@
 <script setup>
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const open = ref(true)
+const user = ref({});
 
-const user = {
-  id: 1,
-  name: 'John Doe',
-  avatar: 'https://randomuser.me/api/portraits',
-  email: 'johndoe@example.com',
-  password: 'password',
-  age: 25,
-  country: 'United States',
-  subscription: 'Premium',
-  phone: '123-456-7890',
-  sort_order: 0,
-  status: true
-}
+fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/users?id='+route.params.id)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    user.value = response.body[0]
+})
+
+// const user = {
+//   id: 1,
+//   name: 'John Doe',
+//   avatar: 'https://randomuser.me/api/portraits',
+//   email: 'johndoe@example.com',
+//   password: 'password',
+//   age: 25,
+//   country: 'United States',
+//   subscription: 'Premium',
+//   phone: '123-456-7890',
+//   sort_order: 0,
+//   status: true
+// }
 </script>
