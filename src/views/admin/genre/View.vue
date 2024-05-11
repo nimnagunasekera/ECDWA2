@@ -68,15 +68,26 @@
 <script setup>
 import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const open = ref(true)
+const genre = ref({});
 
-const genre = {
-  id: 1,
-  name: 'Pop',
-  description: 'A genre of popular music that originated in its modern form during the mid-1950s in the United States and the United Kingdom.',
-  image: 'https://via.placeholder.com/150',
-  sort_order: 0,
-  status: true // Published etc.
-}
+fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/genres?id='+route.params.id)
+  .then((response) => response.json())
+  .then((response) => {
+    console.log(response)
+    genre.value = response.body[0]
+})
+
+// const genre = {
+//   id: 1,
+//   name: 'Pop',
+//   description: 'A genre of popular music that originated in its modern form during the mid-1950s in the United States and the United Kingdom.',
+//   image: 'https://via.placeholder.com/150',
+//   sort_order: 0,
+//   status: true // Published etc.
+// }
 </script>
