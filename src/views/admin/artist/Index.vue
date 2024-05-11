@@ -99,27 +99,37 @@
 <script setup>
 import SideBar from '@/components/SideBar.vue';
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
 
-const artists = [
-  {
-    id: 1,
-    name: 'Costa',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    status: true
-  },
-  {
-    id: 2,
-    name: 'K-Mac',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    status: false
-  },
-  {
-    id: 3,
-    name: 'Kao Denero',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    status: true
-  }
-]
+const artists = ref([])
+
+fetch('https://9j8qvapg12.execute-api.ap-southeast-1.amazonaws.com/dev/artists')
+  .then(response => response.json())
+  .then(response => {
+    console.log(response);
+    artists.value = response.body;
+  });
+
+// const artists = [
+//   {
+//     id: 1,
+//     name: 'Costa',
+//     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     status: true
+//   },
+//   {
+//     id: 2,
+//     name: 'K-Mac',
+//     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     status: false
+//   },
+//   {
+//     id: 3,
+//     name: 'Kao Denero',
+//     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//     status: true
+//   }
+// ]
 </script>
 <style>
 .main {
