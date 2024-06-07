@@ -3,6 +3,7 @@
       <UserSideBar />
       <div class="h-fit bg-gradient-to-b from-indigo-600/50">
         <div class="p-6">
+          <router-view></router-view>
           <div class="flex flex-row justify-between pr-6">
             <h2 class="text-4xl font-bold">Albums</h2>
             <div class="flex gap-2">
