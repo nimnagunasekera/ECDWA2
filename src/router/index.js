@@ -12,7 +12,7 @@ const router = createRouter({
     {
       path: '/albums',
       name: 'albums',
-      component: () => import('../views/album/Index.vue')
+      component: () => import('../views/AlbumView.vue')
     },
     {
       path: '/artists',
