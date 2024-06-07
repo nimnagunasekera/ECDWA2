@@ -27,11 +27,14 @@
           </div>
           <div class="mt-4 -ml-3 grid grid-cols-5 gap-2">
             <div v-for="album in albums" :key="album.id" class="flex flex-col p-3 cursor-pointer gap-2 rounded-md hover:bg-black/10">
+              <RouterLink :to="`/albums/${album.id}`">
               <img :src="album.album_art" class="w-48 h-48 rounded-md" width="120" height="120" alt="Album Photo" />
               <div class="flex flex-col gap-1">
                 <span class="text-lg font-semibold">{{ album.name }}</span>
                 <span class="text-sm text-black">{{ album.artist.name }}</span>
               </div>
+            </RouterLink>
+
             </div>
           </div>
         </div>
@@ -39,13 +42,15 @@
     </div>
   </template>
   
-  <script>
+  <script type="module">
   import { onMounted, ref, watch } from 'vue';
+  import { RouterLink } from 'vue-router';
   import UserSideBar from '@/components/UserSideBar.vue';
   
   export default {
     components: {
-      UserSideBar
+      UserSideBar,
+      RouterLink
     },
     setup() {
       const albums = ref([]);
