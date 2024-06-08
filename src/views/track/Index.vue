@@ -20,7 +20,7 @@
             <li v-for="track in tracks" :key="track.id">
               <div class="group flex items-center justify-between gap-4 rounded-lg bg-black/5 overflow-hidden transition-colors cursor-pointer hover:bg-black/10">
                 <div class="flex flex-row items-center gap-2">
-                  <img class="w-28 h-28 rounded" :src="track.album.album_art" alt="Track Image" />
+                  <img class="w-36 h-36 rounded-2xl p-3" :src="track.album.album_art" alt="Track Image" />
                   <RouterLink :to="`/tracks/${track.id}`">
                     <div class="flex flex-col gap-1">
                       <span class="font-semibold text-xl">{{ track.name }}</span>
@@ -71,7 +71,7 @@
             <a href="/albums" class="text-zinc-400">
               <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 16 16"><path d="M11.196 8 6 5v6l5.196-3z"></path><path d="M15.002 1.75A1.75 1.75 0 0 0 13.252 0h-10.5a1.75 1.75 0 0 0-1.75 1.75v12.5c0 .966.783 1.75 1.75 1.75h10.5a1.75 1.75 0 0 0 1.75-1.75V1.75zm-1.75-.25a.25.25 0 0 1 .25.25v12.5a.25.25 0 0 1-.25.25h-10.5a.25.25 0 0 1-.25-.25V1.75a.25.25 0 0 1 .25-.25h10.5z"></path></svg>
             </a>
-            <a href="/" class="text-zinc-400">
+            <a :href="`/albums/${currentTrack.album.id}`" class="text-zinc-400">
               <svg class="w-4 h-4 text-current fill-current" viewBox="0 0 16 16"><path d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 2.5 2.5v1H1V3.5z"></path></svg>
             </a>
           </div>
