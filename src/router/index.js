@@ -35,6 +35,18 @@ const router = createRouter({
       ]
     },
     {
+      path: '/tracks',
+      name: 'tracks',
+      component: () => import('../views/track/Index.vue'),
+      children: [
+        {
+          path: ':id',
+          name: 'viewTracks',
+          component: () => import('../views/track/View.vue')
+        }
+      ]
+    },
+    {
       path: '/admin',
       name: 'admin',
       component: () => import('../views/admin/AdminDashboard.vue')

@@ -45,9 +45,8 @@ import AppLogo from '@/components/icons/AppLogo.vue'
 
 const navigation = [
     { name: 'Home', href: '/', icon: HomeIcon, current: true },
-    { name: 'Artists', href: '/artists', icon: CalendarIcon, current: false },
-    { name: 'Genres', href: '/genres', icon: CalendarIcon, current: false },
     { name: 'Albums', href: '/albums', icon: CalendarIcon, current: false },
+    { name: 'Artists', href: '/artists', icon: CalendarIcon, current: false },
     { name: 'Tracks', href: '/tracks', icon: MusicalNoteIcon, current: false },
 ]
 const teams = [
