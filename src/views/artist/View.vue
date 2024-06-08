@@ -1,5 +1,4 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <TransitionRoot as="template" :show="open">
       <Dialog as="div" class="relative z-10" @close="open = true">

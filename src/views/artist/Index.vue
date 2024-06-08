@@ -16,12 +16,12 @@
           </div>
         </div>
         <div class="">
-          <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6">
+          <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 text-center sm:grid-cols-2 md:grid-cols-4 lg:mx-0 lg:max-w-none">
             <li v-for="artist in artists" :key="artist.id">
               <RouterLink :to="`/artists/${artist.id}`">
-                <img class="mx-auto h-24 w-24 rounded-full object-contain" :src="artist.avatar" alt="" />
-                <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{{ artist.name }}</h3>
-                <p class="text-sm leading-6 text-gray-600">{{ artist.bio }}</p>
+                <img class="mx-auto h-26 w-26 rounded-full object-contain" :src="artist.avatar" alt="" />
+                <h3 class="mt-6 font-semibold text-xl leading-7 tracking-tight text-gray-900">{{ artist.name }}</h3>
+                <p class="leading-6 text-gray-600">{{ artist.bio }}</p>
               </RouterLink>
             </li>
           </ul>
