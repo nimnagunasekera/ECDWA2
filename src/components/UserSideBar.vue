@@ -36,21 +36,19 @@
 <script setup>
 import {
 CalendarIcon,
-HomeIcon,
 MusicalNoteIcon,
-ArrowLeftOnRectangleIcon,
+ArrowRightOnRectangleIcon,
 } from '@heroicons/vue/24/outline';
 
 import AppLogo from '@/components/icons/AppLogo.vue'
 
 const navigation = [
-    { name: 'Home', href: '/', icon: HomeIcon, current: true },
     { name: 'Albums', href: '/albums', icon: CalendarIcon, current: false },
     { name: 'Artists', href: '/artists', icon: CalendarIcon, current: false },
     { name: 'Tracks', href: '/tracks', icon: MusicalNoteIcon, current: false },
 ]
 const teams = [
-{ id: 1, name: 'Sign Out', href: '/login', icon: ArrowLeftOnRectangleIcon, current: false },
+{ id: 1, name: 'Sign Out', href: '/login', icon: ArrowRightOnRectangleIcon, current: false },
 ]
 
 fetch
